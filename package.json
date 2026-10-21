@@ -1,0 +1,16 @@
+{
+  "name": "ansimorph",
+  "version": "24.1.0",
+  "private": true,
+  "description": "Turn images into colored ANSI art that fits in a Discord message — runs entirely in the browser.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node tools/test/smoke.js",
+    "build:wasm": "sh wasm/build.sh",
+    "i18n:embed": "python3 tools/embed-i18n.py",
+    "i18n:extract": "python3 tools/i18n-extract.py index.html"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.8.0"
+  }
+}
