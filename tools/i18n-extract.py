@@ -69,6 +69,10 @@ def main():
         for a, b, c in anylit.findall(code):
             x = a or b or c
             if not x or not HANGUL.search(x): continue
+            if '${' in x:   # a quoted attribute inside a template literal: take the strings in its ${...} parts
+                for y in re.findall(r"'((?:[^'\\]|\\.)*)'", x):
+                    if HANGUL.search(y): keys.append(js_unescape(y))
+                continue
             x = js_unescape(x)
             if '<' in x and '>' in x: keys += html_texts(x)
             else: keys.append(x.strip() if x.strip() == x.strip() else x)
