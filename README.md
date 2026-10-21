@@ -10,20 +10,23 @@ Turn images into colored ANSI art that fits in a single Discord message.
 
 - Four modes: Braille dots, half blocks, text/ASCII glyph matching, vector edges
 - 16-color, truecolor and optional 256-color output for Discord ` ```ansi ` blocks
+- Mono (plain text) output: dithered Braille, half blocks with ░▒▓ shades, or glyphs, sized to fit the limit; light-theme option
 - Always fits the character limit (2,000 by default) by optimizing where colors change
 - **✦ Find best settings** suggests column count, colors and preprocessing for the limit
 - Shows the error versus the original after every change
 - Runs entirely in the browser (WebAssembly + background worker); images are never uploaded
-- English, 한국어, 日本語
+- English, 한국어, 日本語; light and dark themes
 
 ## Usage
 
 1. Open `index.html` in a browser.
 2. Drop, paste or pick an image.
 3. Choose a mode and color mode, or press **✦ Find best settings** and pick a card.
-4. Press **Copy Discord ANSI** and paste into Discord.
+4. Press **Copy for Discord** and paste into Discord.
 
 Truecolor and 256-color support depends on the Discord client; 16-color codes are the most widely supported.
+
+Some devices draw the blank Braille character (⠀) narrower than the others, which shifts rows. Braille output therefore fills gaps with a single dot by default (Discord compatibility settings).
 
 ## Development
 
