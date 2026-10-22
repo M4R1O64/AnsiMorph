@@ -473,5 +473,9 @@
  "이미지 없음": "No image",
  "바꾼 묶음 {n}개": "{n} changed",
  "기본값": "Default",
- "제목을 누르면 카드가 펼쳐집니다. 카드마다 지금 이미지로 만든 미리보기가 떠서 고르기 쉽습니다.": "Click the title to show the cards. Each card shows a preview made from your image, so you can compare at a glance."
+ "제목을 누르면 카드가 펼쳐집니다. 카드마다 지금 이미지로 만든 미리보기가 떠서 고르기 쉽습니다.": "Click the title to show the cards. Each card shows a preview made from your image, so you can compare at a glance.",
+ "모드·글자 수 제한·그림 비율에 맞춰 색과 크기의 균형이 좋은 열 수를 고릅니다. 슬라이더를 움직이면 직접 정한 값을 씁니다.": "Picks the column count that best balances color and size for the mode, character limit and picture shape. Moving the slider uses your own value.",
+ "가로 칸 수는 처음에 '자동'입니다. 글자 수 제한 안에서 색과 형태가 가장 잘 사는 열 수를 모드와 그림 비율에 맞춰 고릅니다. 슬라이더를 움직이면 직접 정한 값을 쓰고, '자동'을 누르면 다시 자동으로 돌아갑니다.": "Columns start on 'Auto': it picks the column count that keeps color and shape best within the character limit, for the mode and picture shape. Moving the slider uses your own value; press 'Auto' to go back.",
+ "자동 {n}열": "Auto {n} cols",
+ "{v} 열 · 자동": "{v} cols · auto"
 }

@@ -12,6 +12,7 @@ Turn images into colored ANSI art that fits in a single Discord message.
 - 16-color, truecolor and optional 256-color output for Discord ` ```ansi ` blocks
 - Mono (plain text) output: dithered Braille, half blocks with ░▒▓ shades, or glyphs, sized to fit the limit; light-theme option
 - Always fits the character limit (2,000 by default) by optimizing where colors change
+- **Auto columns**: picks the column count that leaves room for color codes within the limit (fixed 60 columns left braille truecolor almost gray)
 - **✦ Find best settings** suggests column count, colors and preprocessing for the limit
 - Shows the error versus the original after every change
 - Runs entirely in the browser (WebAssembly + background worker); images are never uploaded
