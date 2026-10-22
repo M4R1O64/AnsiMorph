@@ -24,6 +24,8 @@ Turn images into colored ANSI art that fits in a single Discord message.
 3. Choose a mode and color mode, or press **✦ Find best settings** and pick a card.
 4. Press **Copy for Discord** and paste into Discord.
 
+New here? Press **Help** (or the `?` key) for a step-by-step guide with screenshots.
+
 Truecolor and 256-color support depends on the Discord client; 16-color codes are the most widely supported.
 
 Some devices draw the blank Braille character (⠀) narrower than the others, which shifts rows. Braille output therefore fills gaps with a single dot by default (Discord compatibility settings).
@@ -33,6 +35,7 @@ Some devices draw the blank Braille character (⠀) narrower than the others, wh
 - No build step: the whole app is `index.html`.
 - WebAssembly core: `wasm/` — rebuild and embed with `sh wasm/build.sh` (clang with the `wasm32` target).
 - Translations: edit `i18n/*.json`, then run `python3 tools/embed-i18n.py`.
+- Help screenshots: `node tools/help-shots.js <image> <dir>`, then `python3 tools/embed-help.py index.html <dir>`.
 - Tests: `npm install && npm test`.
 
 ## License
