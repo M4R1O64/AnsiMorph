@@ -85,5 +85,24 @@ const IMG = process.argv[2], OUT = process.argv[3];
     await shot('sat', await union(['#msgCode'], 6));
     await p.evaluate(() => { setSatEditing(false); }); await sleep(200);
   }
+  // GIF · video: turn the same picture into a short zooming GIF (with the app's own GIF writer), load it, make the GIF
+  await p.evaluate(async () => {
+    saveBlob = () => {};
+    const img = state.image, W = 320, H = Math.round(320 * img.naturalHeight / img.naturalWidth);
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d', { willReadFrequently: true });
+    const w = gifWriter(W, H);
+    for (let i = 0; i < 12; i++) { const z = 1 + i * 0.03, sw = img.naturalWidth / z, sh = img.naturalHeight / z; g.drawImage(img, (img.naturalWidth - sw) / 2, (img.naturalHeight - sh) / 2, sw, sh, 0, 0, W, H); w.add(g.getImageData(0, 0, W, H).data, 100); }
+    handleFile(new File([w.finish()], 'cat.gif', { type: 'image/gif' }));
+  });
+  await p.waitForFunction(() => ANIM.kind === 'gif' && state.imageLoaded, { timeout: 60000 });
+  await p.evaluate(() => setLang('ko', false)); await idle(); await p.evaluate(() => renderIdle());
+  await p.evaluate(() => document.getElementById('modeBrailleBtn').click()); await sleep(300); await idle(); await p.evaluate(() => renderIdle());   // braille shows the motion best
+  await p.evaluate(() => animMake());
+  await p.waitForFunction(() => !ANIM.busy && !document.getElementById('animView').hidden, { timeout: 600000 });
+  await sleep(800);
+  for (const L of ['ko', 'en', 'ja']) {
+    await p.evaluate((l) => setLang(l, false), L); await sleep(500);
+    await p.screenshot({ path: path.join(OUT, `${L}_anim.png`), clip: await union(['.anim-card'], 0) });
+  }
   await b.close();
 })();
